@@ -2,25 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehavior : MonoBehaviour
+public class ItemBehavior : MonoBehaviour
 {
     // 1
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        //2 
-        if (other.name == "Player")
+        // 2
+        if (collision.gameObject.name == "Player")
         {
-            Debug.Log("Player detected - attack!");
-        }
-    }
+            // 3
+            Destroy(this.transform.parent.gameObject);
 
-    // 3
-    void OnTriggerExit(Collider other)
-    {
-        // 4
-        if (other.name == "Player")
-        {
-            Debug.Log("Player out of range, resume patrol");
+            // 4
+            Debug.Log("Item collected!");
         }
     }
 }
