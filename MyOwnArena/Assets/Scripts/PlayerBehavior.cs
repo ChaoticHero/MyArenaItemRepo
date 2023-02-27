@@ -46,6 +46,9 @@ public class PlayerBehavior : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
             bulletType = 0;
+        
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            bulletType = 1;
 
         if (Input.GetMouseButtonDown(0))
         {
